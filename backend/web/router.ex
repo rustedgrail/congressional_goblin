@@ -19,6 +19,8 @@ defmodule CongressionalGoblin.Router do
     get "/", PageController, :index
   end
 
+  resources "/users", CongressionalGoblin.UserController, except: [:new, :edit]
+
   # Other scopes may use custom stacks.
   # scope "/api", CongressionalGoblin do
   #   pipe_through :api

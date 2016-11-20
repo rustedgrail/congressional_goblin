@@ -41,3 +41,5 @@ config :congressional_goblin, CongressionalGoblin.Repo,
   database: "congressional_goblin_dev",
   hostname: "localhost",
   pool_size: 10
+
+import_config "prod.secret.exs"
