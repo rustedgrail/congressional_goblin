@@ -16,6 +16,6 @@ defmodule CongressionalGoblin.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:username, :email, :password, :address])
-    |> validate_required([:username, :email, :password, :address])
+    |> validate_required([:username, :address])
   end
 end
