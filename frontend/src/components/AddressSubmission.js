@@ -1,27 +1,26 @@
-import React, {Component} from "react";
+import React from "react";
 
-class AddressSubmission extends Component {
+class AddressSubmission extends React.Component {
   constructor(props) {
     super(props);
     this.state = { address: "" };
-  }
+    this.changeAddress = e => {
+      this.setState({
+        address: e.target.value
+      });
+    }
 
-  changeAddress(e) {
-    // this.setState({
-    //   address: e.target.value
-    // });
-  }
-
-  submitAddress() {
+    this.submitAddress = () => {
     const xhr = new XMLHttpRequest();
-    xhr.open(
-      "POST",
-      `http://localhost:4000/api/get-representatives?address=${encodeURIComponent(address)}`,
-      true
-    );
-    xhr.send();
+      xhr.open(
+        "POST",
+        `http://localhost:4000/api/get-representatives?address=${encodeURIComponent(this.state.address)}`,
+        true
+      );
+      xhr.send();
 
-    xhr.onload(() => console.log(arguments));
+      xhr.onload = () => console.log(arguments);
+    }
   }
 
   render() {
@@ -30,6 +29,8 @@ class AddressSubmission extends Component {
         <label>What is your address?</label>
         <input type="text" onChange={this.changeAddress} />
         <input type="button" value="Find you Representatives" onClick={this.submitAddress} />
+        <br />
+        <div>{this.state.address}</div>
       </div>
     );
   }
