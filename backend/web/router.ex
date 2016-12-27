@@ -22,7 +22,9 @@ defmodule CongressionalGoblin.Router do
   resources "/users", CongressionalGoblin.UserController, except: [:new, :edit]
 
   # Other scopes may use custom stacks.
-  # scope "/api", CongressionalGoblin do
-  #   pipe_through :api
-  # end
+  scope "/api", CongressionalGoblin do
+    pipe_through :api
+
+    post "/get-representatives", AddressController, :get_representatives
+  end
 end
