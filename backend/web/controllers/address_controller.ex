@@ -2,8 +2,7 @@ defmodule CongressionalGoblin.AddressController do
   use CongressionalGoblin.Web, :controller
 
   def get_representatives(conn, %{"address" => address}) do
-    IO.inspect(address)
-
-    send_resp(conn, :accepted, "WORKED")
+    %{body: %{"officials" => reps}} = CongressionalGoblin.Mailer.getReps(address)
+    render(conn, "index.json", reps: reps)
   end
 end

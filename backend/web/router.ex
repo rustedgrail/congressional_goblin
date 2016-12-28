@@ -25,6 +25,6 @@ defmodule CongressionalGoblin.Router do
   scope "/api", CongressionalGoblin do
     pipe_through :api
 
-    post "/get-representatives", AddressController, :get_representatives
+    get "/get-representatives", AddressController, :get_representatives
   end
 end

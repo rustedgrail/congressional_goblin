@@ -9,9 +9,9 @@ defmodule CongressionalGoblin.Mailer do
     |> Poison.decode!
   end
 
-  def getReps(user) do
+  def getReps(address) do
     [key: key] = @api_key
-    url = "#{@civics_api}?address=#{URI.encode(user.address)}&key=#{key}"
-    IO.inspect(get!(url, [referrer: "congressionalgoblin.com"]))
+    url = "#{@civics_api}?address=#{URI.encode(address)}&key=#{key}"
+    get!(url, [Referer: "congressionalgoblin.com"])
   end
 end

@@ -13,7 +13,7 @@ class AddressSubmission extends React.Component {
     this.submitAddress = () => {
     const xhr = new XMLHttpRequest();
       xhr.open(
-        "POST",
+        "GET",
         `http://localhost:4000/api/get-representatives?address=${encodeURIComponent(this.state.address)}`,
         true
       );
