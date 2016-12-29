@@ -6,12 +6,6 @@ defmodule CongressionalGoblin.AddressView do
   end
 
   def render("rep.json", %{address: rep}) do
-    %{name: rep["name"],
-     address: rep["address"],
-     party: rep["party"],
-     phones: rep["phones"],
-     urls: rep["urls"],
-     photoUrl: rep["photoUrl"],
-     channels: rep["channels"]}
+    rep
   end
 end

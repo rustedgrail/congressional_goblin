@@ -4,6 +4,7 @@ class AddressSubmission extends React.Component {
   constructor(props) {
     super(props);
     this.state = { address: "" };
+
     this.changeAddress = e => {
       this.setState({
         address: e.target.value
@@ -14,12 +15,12 @@ class AddressSubmission extends React.Component {
     const xhr = new XMLHttpRequest();
       xhr.open(
         "GET",
-        `http://localhost:4000/api/get-representatives?address=${encodeURIComponent(this.state.address)}`,
+        `/api/get-representatives?address=${encodeURIComponent(this.state.address)}`,
         true
       );
       xhr.send();
 
-      xhr.onload = () => console.log(arguments);
+      xhr.onload = props.onRepLoad
     }
   }
 
